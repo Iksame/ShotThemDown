@@ -4,7 +4,7 @@ function init()
     var VIEW_ANGLE = 45,
         ASPECT = WIDTH / HEIGHT,
         NEAR = 0.1,
-        FAR = 10000;
+        FAR = 100000;
 
     $container = $('#container');
     renderer = new THREE.WebGLRenderer();
@@ -66,7 +66,7 @@ function Ground(color, size_x, size_y, nb_tile)
 
 function Light(name, color, position)
 {
-    pointLight = new THREE.PointLight(color, 50, 350);
+    pointLight = new THREE.PointLight(color, 50, 3050);
 
     pointLight.position.x = position.split(',')[0];
     pointLight.position.y = position.split(',')[1];

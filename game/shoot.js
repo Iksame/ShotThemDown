@@ -65,6 +65,8 @@ function player_collision()
         player1.graphic.position.x -= x - WIDTH;
     if ( y < 0 )
         player1.graphic.position.y -= y;
+    if ( x < 0 )
+        player1.graphic.position.x -= x;
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
 
