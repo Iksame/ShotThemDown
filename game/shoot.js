@@ -2,7 +2,7 @@ var bulletTime1 = 0;
 
 var bullet_player1_material = new THREE.MeshLambertMaterial(
 {
-    color: 0x00ff00, 
+    color: 0xffffff, 
     transparent: false
 });
 

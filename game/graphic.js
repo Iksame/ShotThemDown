@@ -34,7 +34,7 @@ function init()
 
 function Ground(color, size_x, size_y, nb_tile)
 {
-    colors = Array(0xff0000, 0x00ff00, 0x0000ff, 0x000000);
+    colors = Array(0xffff00, 0x00ff00, 0x0000ff, 0x000000);
 
     sizeOfTileX = size_x / nb_tile;
     minX = -(size_x/2);
@@ -48,8 +48,17 @@ function Ground(color, size_x, size_y, nb_tile)
         for (y = minY; y <= maxY; y = y+sizeOfTileY){
 
             color = colors[Math.floor(Math.random()*colors.length)];
-       
-            if (0x000000 != color)
+
+            if (x < ((maxX + minX) / 2) + sizeOfTileX && x > ((maxX + minX) / 2) - sizeOfTileX && y < (maxY + minY) / 2 + sizeOfTileY && y > ((maxY + minY) / 2) - sizeOfTileY)
+            {
+                tmpGround = new THREE.Mesh(
+                    new THREE.PlaneGeometry(sizeOfTileX-10, sizeOfTileY-10),
+                    new THREE.MeshLambertMaterial({color: 0xff0000, transparent: true, opacity: 0.6}));
+                    tmpGround.position.x = x;
+                    tmpGround.position.y = y;
+                    scene.add(tmpGround);
+            }
+            else if (0x000000 != color)
             {
                 tmpGround = new THREE.Mesh(
                 new THREE.PlaneGeometry(sizeOfTileX-10, sizeOfTileY-10),
