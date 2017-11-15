@@ -57,3 +57,8 @@ var Enemy = function(name, color, position, direction, lolilol, mdr) {
             this.speed = this.speed + 0.04
         }
     };
+
+    Enemy.prototype.dead = function () {
+        this.position.x = 100000000000;
+        this.graphic.position.x = 1000000000000000;
+    }

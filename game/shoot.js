@@ -34,6 +34,7 @@ function shoot()
 
 function collisions()
 {
+    bullet_kill();
     bullet_collision();
     player_collision();
     player_falling();
@@ -52,7 +53,24 @@ function bullet_collision()
             i--;
         }
     }
+}
 
+function bullet_kill()
+{
+    //collision between bullet and walls
+    for (var i = 0; i < player1.bullets.length; i++)
+    {
+        if (Math.abs(player1.bullets[i].position.x) >= WIDTH / 2 ||
+            Math.abs(player1.bullets[i].position.y) >= HEIGHT / 2)
+        {
+            console.log("dzadz")
+            scene.remove(player1.bullets[i]);
+            scene.remove(enemy1);
+            enemy1.dead();
+            player1.bullets.splice(i, 1);
+            i--;
+        }
+    }
 }
 
 function player_collision()
@@ -95,15 +113,6 @@ function player_falling()
             && (y > tileY) 
             && (y < mtileY))
         {
-
-        console.log("------------")
-        console.log("x: " + x)
-        console.log("y: " + y)
-        console.log("minx : " + tileX)
-        console.log("maxx : " + mtileX)
-        console.log("miny : " + tileY)
-        console.log("maxy : " + mtileY)
-        console.log("------------")
             player1.dead();
         }
     }

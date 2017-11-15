@@ -82,7 +82,7 @@ function Ground(color, size_x, size_y, nb_tile)
                 //console.log("x:" + x)
                 //console.log("y:" + y)
                 //console.log("------------")
-                //noGround.push([x, y]);
+                noGround.push([x, y]);
             }
         }
     }
