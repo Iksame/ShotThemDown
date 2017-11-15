@@ -2,7 +2,7 @@ var bulletTime1 = 0;
 
 var bullet_player1_material = new THREE.MeshLambertMaterial(
 {
-    color: 0xffffff, 
+    color: 0x00ff00, 
     transparent: false
 });
 
@@ -63,10 +63,10 @@ function player_collision()
 
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
-    if ( y < 0 )
-        player1.graphic.position.y -= y;
     if ( x < 0 )
         player1.graphic.position.x -= x;
+    if ( y < 0 )
+        player1.graphic.position.y -= y;
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
 
@@ -95,6 +95,15 @@ function player_falling()
             && (y > tileY) 
             && (y < mtileY))
         {
+
+        console.log("------------")
+        console.log("x: " + x)
+        console.log("y: " + y)
+        console.log("minx : " + tileX)
+        console.log("maxx : " + mtileX)
+        console.log("miny : " + tileY)
+        console.log("maxy : " + mtileY)
+        console.log("------------")
             player1.dead();
         }
     }

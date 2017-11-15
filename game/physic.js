@@ -14,5 +14,9 @@ function update()
         player1.decelerate(moveDistance);
 
     player1.move();
+    enemy1.update();
+    enemy2.update();
+    enemy3.update();
+    enemy4.update();
     controls.update();
 }

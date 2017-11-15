@@ -28,6 +28,15 @@ function init()
     player1 = new Player("player1", 0xffff00, new THREE.Vector2(50, 0), 0);
     scene.add(player1.graphic);
 
+    enemy1 = new Enemy("enemy", 0xff00ff, new THREE.Vector2(50,0), 0, 110, -120);
+    enemy2 = new Enemy("enemy", 0xff0000, new THREE.Vector2(50,0), 0, 90, 45);
+    enemy3 = new Enemy("enemy", 0x0000ff, new THREE.Vector2(50,0), 0, -100, -60);
+    enemy4 = new Enemy("enemy", 0x00ffff, new THREE.Vector2(50,0), 0, -30, 110);
+    scene.add(enemy1.graphic);
+    scene.add(enemy2.graphic);
+    scene.add(enemy3.graphic);
+    scene.add(enemy4.graphic);
+
     light1 = new Light("sun", 0xffffff, "0,0,340");
     scene.add(light1);
 }
@@ -68,7 +77,13 @@ function Ground(color, size_x, size_y, nb_tile)
                 scene.add(tmpGround);
             }
             else
-                noGround.push([x, y]);
+            {
+                //console.log("------------")
+                //console.log("x:" + x)
+                //console.log("y:" + y)
+                //console.log("------------")
+                //noGround.push([x, y]);
+            }
         }
     }
 }
